@@ -4,7 +4,7 @@ close all
 
 %% import data from .txt files
 
-projectdir = 'G:\Το Drive μου\Data_thermokipio\Αρχεία txt';
+projectdir = 'G:\Το Drive μου\Data_thermokipio\txt_files';
 dinfo = dir(fullfile(projectdir, '*.txt'));   %use appropriate extension
 filenames = fullfile(projectdir, {dinfo.name});
 nfiles = length(filenames);
