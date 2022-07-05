@@ -4,7 +4,7 @@ close all
 
 %% import data from .txt files
 
-projectdir = 'G:\Το Drive μου\Data_thermokipio\txt_files';
+projectdir = 'G:\Το Drive μου\Data_Greenhouse\txt_files';
 dinfo = dir(fullfile(projectdir, '*.txt'));   %use appropriate extension
 filenames = fullfile(projectdir, {dinfo.name});
 nfiles = length(filenames);
@@ -22,7 +22,8 @@ dt = minutes(10); % set the duration
 data_stations = retime(data_stations,'regular','fillwithmissing','TimeStep',dt); % fill missing dates with NaN
 
 data_stations = data_stations(:,["Tair_Avg","RH_Avg","WS_Avg","SolRad_Out_Avg",...
-    "Tair_in_1_Avg","RH_in_1_Avg","Tair_in_2_Avg","RH_in_2_Avg"]); % keep needed variables
+    "Tair_in_1_Avg","RH_in_1_Avg","Sol_in_1_Avg","Par_in_1_Avg","Tair_in_2_Avg","RH_in_2_Avg",...
+    "Sol_in_2_Avg","Par_in_2_Avg"]); % keep needed variables
 
 %% average of inside temperature and relative humidity
 
