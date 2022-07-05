@@ -29,6 +29,8 @@ data_stations = data_stations(:,["Tair_Avg","RH_Avg","WS_Avg","SolRad_Out_Avg",.
 
 data_stations.Tin_Avg = mean([data_stations.Tair_in_1_Avg,data_stations.Tair_in_2_Avg],2);
 data_stations.RHin_Avg = mean([data_stations.RH_in_1_Avg,data_stations.RH_in_2_Avg],2);
+data_stations.Solin_Avg = mean([data_stations.Sol_in_1_Avg,data_stations.Sol_in_2_Avg],2);
+data_stations.Par_Avg = mean([data_stations.Par_in_1_Avg,data_stations.Par_in_2_Avg],2);
 
 %% save dataset as csv 
 
