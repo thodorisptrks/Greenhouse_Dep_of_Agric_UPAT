@@ -55,32 +55,32 @@ data_testing_array = table2array(data_testing);   % turn table to array
 
 %%  normalization of training and testing dataset in a range of 0.01 to 0.99
 
-[data_training_mins,data_training_maxes,data_training_norm] = normlzn(data_training_array,0.999,0.001);
+[data_training_mins,data_training_maxes,data_training_norm] = normlzn(data_training_array,0.99,0.01);
 
-[data_testing_mins,data_testing_maxes,data_testing_norm] = normlzn(data_testing_array,0.999,0.001);
+[data_testing_mins,data_testing_maxes,data_testing_norm] = normlzn(data_testing_array,0.99,0.01);
 
 %% Inputs
 
 % training
-I_training = data_training_array(:,[1 2 3 4 17 18 19 20 21 22]);
-I_training_norm = data_training_norm(:,[1 2 3 4 17 18 19 20 21 22]);   % normalized
+I_training = data_training_array(:,[1 2 3 4 10 11 12 13 14 15]);
+I_training_norm = data_training_norm(:,[1 2 3 4 10 11 12 13 14 15]);   % normalized
 I_training_norm_tr = I_training_norm';   % transposed
 
 % testing
-I_testing = data_testing_array(:,[1 2 3 4 17 18 19 20 21 22]);
-I_testing_norm = data_testing_norm(:,[1 2 3 4 17 18 19 20 21 22]);   % normalized
+I_testing = data_testing_array(:,[1 2 3 4 10 11 12 13 14 15]);
+I_testing_norm = data_testing_norm(:,[1 2 3 4 10 11 12 13 14 15]);   % normalized
 I_testing_norm_tr = I_testing_norm';   % transposed
 
 %% Targets 
 
 % training
-T_training = data_training_array(:,[13 14]);
-T_training_norm = data_training_norm(:,[13 14]);   % normalized
+T_training = data_training_array(:,[6 7]);
+T_training_norm = data_training_norm(:,[6 7]);   % normalized
 T_training_norm_tr = T_training_norm';   % transposed
 
 % testing
-T_testing = data_testing_array(:,[13 14]);
-T_testing_norm = data_testing_norm(:,[13 14]);   % normalized
+T_testing = data_testing_array(:,[6 7]);
+T_testing_norm = data_testing_norm(:,[6 7]);   % normalized
 T_testing_norm_tr = T_testing_norm';   % transposed
 
 %% Inputs for the function .... mlp_nn(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17)
@@ -127,8 +127,8 @@ for i=1:20
     [max_error_T(:,i),max_error_RH(:,i),mae_T(:,i),mae_RH(:,i),rmse_T(:,i),rmse_RH(:,i),...
         r2_T(:,i),r2_RH(:,i),errors_T(:,i),errors_RH(:,i)] = ...
         mlp_nn(i,'trainlm','logsig','purelin',0.8,0.2,I_training_norm_tr,T_training_norm_tr,...
-        I_testing_norm_tr,T_testing(:,1),T_testing(:,2),0.99,0.01,data_testing_maxes(1,13),...
-        data_testing_mins(1,13),data_testing_maxes(1,14),data_testing_mins(1,14));
+        I_testing_norm_tr,T_testing(:,1),T_testing(:,2),0.99,0.01,data_testing_maxes(1,6),...
+        data_testing_mins(1,6),data_testing_maxes(1,7),data_testing_mins(1,7));
 end
 
 % training algorithm --> Bayesian Regularization backpropagation
