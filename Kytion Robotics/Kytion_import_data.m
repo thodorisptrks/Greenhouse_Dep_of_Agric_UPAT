@@ -21,3 +21,6 @@ kytion_data = kytion_data(starting_datetime_idx:end,:);
 kytion_data = table2timetable(kytion_data);
 
 kytion_data = retime(kytion_data,'regular','mean','TimeStep',minutes(10));
+
+writetimetable(kytion_data,'G:\Το Drive μου\Data_Greenhouse\KYTION\kytion_data.csv','Delimiter',';')
+
