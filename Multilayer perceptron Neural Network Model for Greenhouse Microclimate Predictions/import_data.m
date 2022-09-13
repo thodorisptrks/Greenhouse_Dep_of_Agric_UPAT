@@ -34,4 +34,4 @@ data_stations.Par_Avg = mean([data_stations.Par_in_1_Avg,data_stations.Par_in_2_
 
 %% save dataset as csv 
 
-writetimetable(data_stations,'G:\Το Drive μου\Scripts\data_stations.csv','Delimiter',';')
+writetimetable(data_stations,'G:\Το Drive μου\Data_Greenhouse\data_stations.csv','Delimiter',';')
