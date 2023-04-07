@@ -301,8 +301,22 @@ elseif ~isnan(x_sun) && ~isnan(y_sun) && ~isnan(z_sun)
         end
     end
 
-    camvas_shadow(shadow_south_east_bounds_vals(1,2):shadow_south_east_bounds_vals(3,2),...
-        shadow_south_east_bounds_vals(1,1):shadow_south_east_bounds_vals(3,1)) = 1; %
+    if shadow_south_east_bounds_vals(1,2) < shadow_south_east_bounds_vals(3,2) && shadow_south_east_bounds_vals(1,1) < shadow_south_east_bounds_vals(3,1)
+        camvas_shadow(shadow_south_east_bounds_vals(1,2):shadow_south_east_bounds_vals(3,2),...
+            shadow_south_east_bounds_vals(1,1):shadow_south_east_bounds_vals(3,1)) = 1;
+    
+    elseif shadow_south_east_bounds_vals(1,2) > shadow_south_east_bounds_vals(3,2) && shadow_south_east_bounds_vals(1,1) > shadow_south_east_bounds_vals(3,1)
+        camvas_shadow(shadow_south_east_bounds_vals(3,2):shadow_south_east_bounds_vals(1,2),...
+            shadow_south_east_bounds_vals(3,1):shadow_south_east_bounds_vals(1,1)) = 1;
+    
+    elseif shadow_south_east_bounds_vals(1,2) < shadow_south_east_bounds_vals(3,2) && shadow_south_east_bounds_vals(1,1) > shadow_south_east_bounds_vals(3,1)
+        camvas_shadow(shadow_south_east_bounds_vals(1,2):shadow_south_east_bounds_vals(3,2),...
+            shadow_south_east_bounds_vals(3,1):shadow_south_east_bounds_vals(1,1)) = 1;
+    
+    elseif shadow_south_east_bounds_vals(1,2) > shadow_south_east_bounds_vals(3,2) && shadow_south_east_bounds_vals(1,1) < shadow_south_east_bounds_vals(3,1)
+        camvas_shadow(shadow_south_east_bounds_vals(3,2):shadow_south_east_bounds_vals(1,2),...
+            shadow_south_east_bounds_vals(1,1):shadow_south_east_bounds_vals(3,1)) = 1;
+    end
     % ta midenika ginontai assoi ekei pou exw thermokipio
     
     shadow_south_east_boundaries_new = ...
