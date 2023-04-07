@@ -5,7 +5,7 @@ close all
 cd 'G:\Το Drive μου\Scripts'
 
 %% import data
-data = readtable('data_stations.csv');
+data = readtimetable("G:\Το Drive μου\Scripts MatLab\Data in use\data_stations_10_min.csv");
 
 %% delay for indoor temperature and relative humidity
 
