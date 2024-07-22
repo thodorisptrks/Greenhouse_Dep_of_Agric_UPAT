@@ -1,5 +1,5 @@
 % Greenhouse coordinates calculations
-function GRH_const_points = GreenhouseCoord(grh_dir,numCU_wdwise,numCU_lnwise,grh_width,grh_length,gut_hght,rigde_hght)
+function [GRH_const_points, fi] = GreenhouseCoord(grh_dir,numCU_wdwise,numCU_lnwise,grh_width,grh_length,gut_hght,rigde_hght)
     
     % limitation 1
     assert(any(strcmp(grh_dir, {'NS','EW'})), 'Greenhouse direction must be either North-South or East-West')
@@ -66,4 +66,6 @@ function GRH_const_points = GreenhouseCoord(grh_dir,numCU_wdwise,numCU_lnwise,gr
 		    end
 	    end
     end
+
+    fi = atand(2*(rigde_hght - gut_hght)/(grh_width));
 end

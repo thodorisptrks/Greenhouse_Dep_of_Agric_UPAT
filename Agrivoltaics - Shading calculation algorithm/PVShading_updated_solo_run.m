@@ -810,7 +810,7 @@ function [surface_shade_in_CU_sum_final,surface_shade_in_CU_perc,...
         view(-10.725,20.6935530484431)
         grid on
         box on
-		saveas(fig_3D, sprintf('C:\\Users\\thodo\\Desktop\\graphs_minutely\\apr_20\\pyr_1\\3D\\%d_%d_%d__%d_%d_%d.jpg', d, mth, yr, hr, mnt, sc), 'jpg')
+		saveas(fig_3D, sprintf('C:\\Users\\thodo\\Desktop\\graphs_minutely\\may_28\\pyr_2\\3D\\%d_%d_%d__%d_%d_%d.jpg', d, mth, yr, hr, mnt, sc), 'jpg')
 
         % 2D
         fig_2D_in_grh = figure('WindowState','maximized','Color','w');    
@@ -927,7 +927,7 @@ function [surface_shade_in_CU_sum_final,surface_shade_in_CU_perc,...
                     'FontSize',16,'FontWeight','bold')
                 title(string(datetime(yr,mth,d,hr,mnt,sc,'Format','dd-MMM-uuuu HH:mm:ss')),"FontWeight","bold","FontSize",15);
                 box on
-                saveas(fig_2D_in_grh,sprintf('C:\\Users\\thodo\\Desktop\\graphs_minutely\\apr_20\\pyr_1\\2D\\%d_%d_%d__%d_%d_%d.jpg', d, mth, yr, hr, mnt, sc), 'jpg')
+                saveas(fig_2D_in_grh,sprintf('C:\\Users\\thodo\\Desktop\\graphs_minutely\\may_28\\pyr_2\\2D\\%d_%d_%d__%d_%d_%d.jpg', d, mth, yr, hr, mnt, sc), 'jpg')
 			end
 			
 			for i = 1:size(CU_tables,2)
