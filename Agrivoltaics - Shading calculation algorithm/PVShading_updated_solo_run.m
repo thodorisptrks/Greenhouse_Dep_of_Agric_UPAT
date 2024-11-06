@@ -779,6 +779,7 @@ function [surface_shade_in_CU_sum_final,surface_shade_in_CU_perc,...
         % 3D
         fig_3D = figure('WindowState','maximized','Color','w');
         axes1 = axes('Parent',fig_3D);
+        drawnow;
         hold(axes1,'on');
         % Construction unit south
 		for i=1:size(CU_tables,2)
@@ -799,22 +800,24 @@ function [surface_shade_in_CU_sum_final,surface_shade_in_CU_perc,...
                 end
 			end
 		end
-		set(axes1,'FontSize',13,'FontWeight','bold')
+		set(axes1,'FontSize',17,'FontWeight','bold','XMinorTick','on')
+        hold(axes1,'off');
         xlim([-5 20])
         ylim([-10 20])
         zlim([0 10])
-        xlabel('X_d_i_r_e_c_t_i_o_n (South - North) (m)','FontSize',15,'FontWeight','bold','Rotation',1.5,'Position',[9.88205431761233,-0.85827950550015,-2.146732975498196])
-        ylabel('Y_d_i_r_e_c_t_i_o_n (East - West) (m)','FontSize',15,'FontWeight','bold','Rotation',-41.5,'Position',[-6.764231836692318,4.583942250719929,-0.708391221348734])
-        zlabel('Z_d_i_r_e_c_t_i_o_n (Altitude) (m)','FontSize',15,'FontWeight','bold')
-        title(string(datetime(yr,mth,d,hr,mnt,sc,'Format','dd-MMM-uuuu HH:mm:ss')),"FontWeight","bold","FontSize",15);
+        xlabel('X_d_i_r_e_c_t_i_o_n (South - North) (m)','FontSize',20,'FontWeight','bold','Rotation',1.5,'Position',[9.88205431761233,-0.85827950550015,-2.146732975498196])
+        ylabel('Y_d_i_r_e_c_t_i_o_n (East - West) (m)','FontSize',20,'FontWeight','bold','Rotation',-41.5,'Position',[-6.764231836692318,4.583942250719929,-0.708391221348734])
+        zlabel('Z_d_i_r_e_c_t_i_o_n (Altitude) (m)','FontSize',20,'FontWeight','bold')
+        title(string(datetime(2024,mth,d,hr,mnt,sc,'Format','dd-MMM-uuuu HH:mm:ss')),"FontWeight","bold","FontSize",20);
         view(-10.725,20.6935530484431)
         grid on
         box on
-		saveas(fig_3D, sprintf('C:\\Users\\thodo\\Desktop\\graphs_minutely\\may_28\\pyr_2\\3D\\%d_%d_%d__%d_%d_%d.jpg', d, mth, yr, hr, mnt, sc), 'jpg')
+		% saveas(fig_3D, sprintf('C:\\Users\\thodo\\Desktop\\graphs_minutely\\may_28\\pyr_2\\3D\\%d_%d_%d__%d_%d_%d.jpg', d, mth, yr, hr, mnt, sc), 'jpg')
 
         % 2D
         fig_2D_in_grh = figure('WindowState','maximized','Color','w');    
         axes1 = axes('Parent',fig_2D_in_grh);
+        drawnow;
         hold(axes1,'on');
         for i=1:size(CU_tables,2)
             for m=1:size(CU_tables,1)
@@ -832,13 +835,15 @@ function [surface_shade_in_CU_sum_final,surface_shade_in_CU_perc,...
                 end
             end
         end
-		set(axes1,'FontSize',13,'FontWeight','bold')
-        xlabel('South - North (Dimensions in cm)','FontSize',15,'FontWeight','bold')
-        ylabel('West - East (Dimensions in cm)','FontSize',15,'FontWeight','bold','Rotation',90)
+		set(axes1,'FontSize',17,'FontWeight','bold','XMinorTick','on')
+        hold(axes1,'off');
+        xlabel('South - North (Dimensions in cm)','FontSize',20,'FontWeight','bold')
+        ylabel('West - East (Dimensions in cm)','FontSize',20,'FontWeight','bold','Rotation',90)
         xlim([0 1800])
         ylim([0 1800])
         legend('Greenhouse area','Shaded area considering opaque PVs', 'Shaded area of semi-transparent photovoltaics',...
-            'FontSize',16,'FontWeight','bold')
+            'FontSize',18,'FontWeight','bold')
+        title(string(datetime(2024,mth,d,hr,mnt,sc,'Format','dd-MMM-uuuu HH:mm:ss')),"FontWeight","bold","FontSize",20);
         box on
         		
 		reply_array_end = NaN;
@@ -899,6 +904,7 @@ function [surface_shade_in_CU_sum_final,surface_shade_in_CU_perc,...
 				
 				fig_2D_in_grh = figure('WindowState','maximized','Color','w');    
                 axes1 = axes('Parent',fig_2D_in_grh);
+                drawnow;
                 hold(axes1,'on');
                 for i=1:size(CU_tables,2)
                     for m=1:size(CU_tables,1)
@@ -918,16 +924,17 @@ function [surface_shade_in_CU_sum_final,surface_shade_in_CU_perc,...
                 end
                 hold on
                 scatter(x_st_1,y_st_1,50,'filled','Marker','o','MarkerEdgeColor','k','MarkerFaceColor','g')
-                set(axes1,'FontSize',13,'FontWeight','bold')
-                xlabel('South - North (Dimensions in cm)','FontSize',15,'FontWeight','bold')
-                ylabel('West - East (Dimensions in cm)','FontSize',15,'FontWeight','bold','Rotation',90)
+                set(axes1,'FontSize',17,'FontWeight','bold','XMinorTick','on')
+                hold(axes1,'off');
+                xlabel('South - North (Dimensions in cm)','FontSize',20,'FontWeight','bold')
+                ylabel('West - East (Dimensions in cm)','FontSize',20,'FontWeight','bold','Rotation',90)
                 xlim([0 1800])
                 ylim([0 1800])
                 legend('Greenhouse area','Shaded area considering opaque PVs', 'Shaded area of semi-transparent photovoltaics',...
-                    'FontSize',16,'FontWeight','bold')
-                title(string(datetime(yr,mth,d,hr,mnt,sc,'Format','dd-MMM-uuuu HH:mm:ss')),"FontWeight","bold","FontSize",15);
+                    'FontSize',18,'FontWeight','bold')
+                title(string(datetime(2024,mth,d,hr,mnt,sc,'Format','dd-MMM-uuuu HH:mm:ss')),"FontWeight","bold","FontSize",20);
                 box on
-                saveas(fig_2D_in_grh,sprintf('C:\\Users\\thodo\\Desktop\\graphs_minutely\\may_28\\pyr_2\\2D\\%d_%d_%d__%d_%d_%d.jpg', d, mth, yr, hr, mnt, sc), 'jpg')
+                % saveas(fig_2D_in_grh,sprintf('C:\\Users\\thodo\\Desktop\\graphs_minutely\\may_28\\pyr_2\\2D\\%d_%d_%d__%d_%d_%d.jpg', d, mth, yr, hr, mnt, sc), 'jpg')
 			end
 			
 			for i = 1:size(CU_tables,2)
